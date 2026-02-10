@@ -248,3 +248,82 @@ footer a:hover{
 .card.accepted .status{
   display:none;
 }
+
+/* FULLSCREEN PINBOARD */
+.pinboard{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:50;
+
+  padding:24px 20px 28px;
+  overflow-y:auto;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,79,163,.08),
+      rgba(255,79,163,.08) 4px,
+      transparent 4px,
+      transparent 8px
+    ),
+    #fff0f7;
+}
+
+.pinboard.show{
+  display:block;
+  animation: boardIn .35s ease-out;
+}
+
+@keyframes boardIn{
+  from{ opacity:0; transform:scale(.98); }
+  to{ opacity:1; transform:scale(1); }
+}
+
+.pinTitle{
+  text-align:center;
+  font-family:"Shadows Into Light", cursive;
+  font-size:38px;
+  color:var(--hotpink);
+  margin:6px 0 4px;
+}
+
+.pinSub{
+  text-align:center;
+  margin-bottom:20px;
+  font-size:15px;
+}
+
+/* BIG responsive board */
+.board{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:18px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+/* larger pins */
+.pin{
+  background:#fff;
+  border:4px solid var(--hotpink);
+  padding:12px 12px 14px;
+  box-shadow:6px 6px 0 var(--pixel-shadow);
+}
+
+.pin img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border:3px solid rgba(0,0,0,.15);
+}
+
+.pin h3{
+  margin:8px 0 4px;
+  font-size:15px;
+}
+
+.pin p{
+  font-size:13px;
+}
+

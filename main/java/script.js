@@ -21,6 +21,7 @@ const pinEntries = [
   { date: "2025-02-14", title: "Valentine Ramen", caption: "Swag", img: "main/images/SickRamen.jpg" },
   { date: "2024-12-14", title: "Timbark Lovers", caption: "I cant even tell if you are actually drinking", img: "main/images/timbarklianna.jpg" },
   { date: "2024-12-14", title: "Timbark Lovers", caption: "Autistic eye contact", img: "main/images/timbarkdan.jpg" },
+  { date: "2025-08-30", title: "Selfie over Banff", caption: "Only time you smiled was at the top lol", img: "main/images/BanffSelfie.jpg"}
 ];
 
 // ISO week number
@@ -52,7 +53,8 @@ function renderPinboard() {
 
   board.innerHTML = "";
 
-  const list = entriesThisWeek.length ? entriesThisWeek : pinEntries; // fallback: show all if none match
+  const list = pinEntries; // show all for now
+
 
   list.forEach((e) => {
     const rot = (Math.random() * 6 - 3).toFixed(2);
@@ -142,6 +144,7 @@ function lockInYes() {
   // show pinboard after a tiny beat
   setTimeout(() => {
     renderPinboard();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, 400);
 }
 
